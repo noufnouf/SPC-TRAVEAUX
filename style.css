@@ -7,12 +7,32 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow: hidden;
+    
 }
+body::before {
+    content: "";
+    position: fixed; /* ou absolute si tu préfères scrollable */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/img/fond.jpeg");
+    
+    background-position: center;
+
+    opacity: 0.5;
+    z-index: -1;
+  }
+main {
+  flex: 1;
+}
+
 
 header {
   background: #fff;
   border-bottom: 1px solid #eee;
-  background: lightgray;
+  background: rgb(2, 54, 84);
   margin-top: 0;
   padding-top: 0;
   top: 0;
@@ -46,7 +66,7 @@ nav {
   font-weight: 500;
   letter-spacing: 0.4px;
   font-size: 15px;
-  color: #1327db;
+  color:white;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -75,10 +95,48 @@ nav {
     transform: scale(1.1); /* ← la bonne syntaxe ici */
     background-color: #b30000;
   }
-/* main */
-main {
-    flex: 1; /* prend toute la hauteur restante entre header et footer */
+  .dropdown {
+    position: relative;
   }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #023653;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 0;
+    min-width: 180px;
+    z-index: 10;
+    
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden; /* pour que les coins restent arrondis même au survol */
+    
+  }
+  
+  .dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+  
+  .dropdown-menu li a:hover {
+    background: #f1f1f1;
+    color: #f6100c;
+  }
+  
+  /* Faire apparaître au hover */
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+
 /* hero */
 .hero {
     height: 70px; /* ← pile la taille que tu as sur ta capture */

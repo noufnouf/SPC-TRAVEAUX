@@ -17,6 +17,10 @@ document.querySelector(".prev").addEventListener("click", () => {
 });
 
 // Auto-slide toutes les 3 secondes
+setInterval(() => {
+  current = (current + 1) % slides.length;
+  updateSlider();
+}, 3000);
 const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
 
 phoneLinks.forEach(link => {
@@ -26,7 +30,7 @@ phoneLinks.forEach(link => {
 
     let message = "";
 
-    if (link.classList.contains("phone-urgence")) {
+    if (link.id === "urgence") {
       message = `📞 Vous allez appeler le numéro d'urgence de SPC Travaux : ${number}\nVoulez-vous continuer ?`;
     } else {
       message = `📞 Vous allez appeler SPC Travaux : ${number}\nVoulez-vous continuer ?`;
