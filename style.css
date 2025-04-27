@@ -3,39 +3,48 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  font-size: 100%;
+}
+
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow: hidden;
-    
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 body::before {
-    content: "";
-    position: fixed; /* ou absolute si tu préfères scrollable */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("assets/img/fond.jpeg");
-    
-    background-position: center;
+  content: "";
+  position: fixed; /* ou absolute si tu préfères scrollable */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/img/fond.jpeg");
 
-    opacity: 0.5;
-    z-index: -1;
-  }
+  background-position: center;
+
+  opacity: 0.5;
+  z-index: -1;
+}
 main {
   flex: 1;
 }
 
-
 header {
-  background: #fff;
-  border-bottom: 1px solid #eee;
   background: rgb(2, 54, 84);
-  margin-top: 0;
-  padding-top: 0;
+  width: 100%;
   top: 0;
+  left: 0;
+  z-index: 1000;
+  position: sticky;
 }
 
 .header-content {
@@ -54,6 +63,12 @@ header {
 nav {
   width: 70%;
 }
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
 .nav-links {
   list-style: none;
   display: flex;
@@ -66,7 +81,7 @@ nav {
   font-weight: 500;
   letter-spacing: 0.4px;
   font-size: 15px;
-  color:white;
+  color: white;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -83,87 +98,104 @@ nav {
   border-radius: 5px;
 }
 #urgence a[href^="tel:"] {
-    background: red;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-  }
-  
-  #urgence a[href^="tel:"]:hover {
-    transform: scale(1.1); /* ← la bonne syntaxe ici */
-    background-color: #b30000;
-  }
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #023653;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    list-style: none;
-    padding: 0;
-    min-width: 180px;
-    z-index: 10;
-    
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    overflow: hidden; /* pour que les coins restent arrondis même au survol */
-    
-  }
-  
-  .dropdown-menu li a {
-    display: block;
-    padding: 10px 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.3s;
-  }
-  
-  .dropdown-menu li a:hover {
-    background: #f1f1f1;
-    color: #f6100c;
-  }
-  
-  /* Faire apparaître au hover */
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-  
+  background: red;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#urgence a[href^="tel:"]:hover {
+  transform: scale(1.1); /* ← la bonne syntaxe ici */
+  background-color: #b30000;
+}
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #023653;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  min-width: 180px;
+  z-index: 10;
+
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden; /* pour que les coins restent arrondis même au survol */
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  background: #f1f1f1;
+  color: #f6100c;
+}
+
+/* Faire apparaître au hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+/* les image de plomberie clim chauffage */
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 2rem;
+  place-items: center;
+}
+
+.images-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.images-grid img:hover {
+  transform: scale(1.05);
+}
 
 /* hero */
 .hero {
-    height: 70px; /* ← pile la taille que tu as sur ta capture */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1rem;
-    text-align: center;
-    margin: 0;
-    
-    margin-top: 30px;
+  height: 70px; /* ← pile la taille que tu as sur ta capture */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  text-align: center;
+  margin: 0;
+
+  margin-top: 30px;
 }
-.hero h1{
-    font-size: 2.5rem;
-    line-height: 1.3;
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.3;
 }
 .highlight {
   color: rgb(236, 9, 9);
   font-weight: bold;
- 
+
   border-radius: 10px;
   padding: 5px;
 }
 .highlight:hover {
   background: rgb(16, 50, 218); /* bleu Apple-like */
   transition: 0.2s;
- 
 }
 
 .fade-up {
@@ -236,21 +268,79 @@ nav {
 }
 /* footer */
 footer {
-    position: sticky;
-    background-color: #f1f1f1;
-    bottom: 0;
-    height: 30px; /* ← voilà la hauteur fixe ultra compacte */
-    text-align: center;
-    border-top: 1px solid #ddd;
-    margin-top: 1rem;
+  position: sticky;
+  background-color: #f1f1f1;
+  bottom: 0;
+  height: 30px; /* ← voilà la hauteur fixe ultra compacte */
+  text-align: center;
+  border-top: 1px solid #ddd;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  background: #0690de;
+  justify-content: center;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+.about-text {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+@media (max-width: 1024px) {
+  /* Tablettes */
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: relative; /* plus position absolute */
+  }
+
+  .nav-links {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
     display: flex;
-    align-items: center;
-    background: #0690DE;
-    justify-content: center;
+    flex-direction: column;
+    background: #023653;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
   }
-  
-  .footer-content p {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #ffffff;
+
+  .nav-links.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
+
+  .nav-links li {
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobiles petits formats */
+}
