@@ -297,28 +297,176 @@ footer {
   font-size: 1.1rem;
   line-height: 1.8;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1115px) {
   /* Tablettes */
-}
+   /* Header */
+   .header-content {
+    width: 95%; /* un peu plus large */
+    padding: 0 1rem;
+  }
 
-@media (max-width: 768px) {
+  .logo {
+    width: 80px; /* réduit un peu le logo */
+  }
+
   nav {
-    position: relative; /* plus position absolute */
+    width: 100%; /* prends plus d'espace */
   }
 
   .nav-links {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: all 0.3s ease;
-    display: flex;
+    gap: 15px; /* un peu plus d'espace entre les liens */
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 2.2rem; /* réduit légèrement le titre */
+  }
+
+  /* Slider */
+  .slide {
+    height: 500px; /* un peu moins haut pour mieux s'adapter */
+  }
+
+  /* Footer reste pareil */
+}
+@media (max-width: 945px) {
+  .header-content {
+    width: 90%;
+    padding: 0 1rem;
+  }
+
+  .logo {
+    width: 70px; /* plus petit pour être visible */
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 13px; /* réduire la taille du texte du menu pour qu'on voie bien la différence */
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* bien plus petit */
+  }
+
+  .slide {
+    height: 450px; /* baisser clairement la hauteur */
+  }
+}
+@media (max-width: 900px) {
+  .header-content {
+    width: 92%;
+    padding: 0 1rem;
+  }
+
+  .logo {
+    width: 75px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .nav-links {
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .slide {
+    height: 480px;
+  }
+}
+@media (max-width: 842px) {
+  /* Header */
+  .header-content {
+    width: 90%;
+    padding: 0 0.8rem;
+  }
+
+  .logo {
+    width: 65px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+
+  /* Slider */
+  .slide {
+    height: 400px;
+  }
+}
+@media (max-width: 805px) {
+  /* Header */
+  .header-content {
+    width: 90%;
+    padding: 0 0.5rem;
+  }
+
+  .logo {
+    width: 60px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
+  .nav-links a {
+    font-size: 11.5px;
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  /* Slider */
+  .slide {
+    height: 380px;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+  }
+
+  .nav-links {
+    display: none;
     flex-direction: column;
     background: #023653;
     width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
   }
 
   .nav-links.active {
@@ -335,12 +483,61 @@ footer {
 
   .menu-toggle {
     display: block;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: white;
     cursor: pointer;
   }
+
+  .logo {
+    width: 60px; /* vraiment plus petit sur mobile */
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .slide {
+    height: 400px;
+  }
 }
 
-@media (max-width: 480px) {
+
   /* Mobiles petits formats */
-}
+  @media (max-width: 480px) {
+    /* Header */
+    .header-content {
+      width: 95%;
+      padding: 0 0.5rem;
+    }
+  
+    .logo {
+      width: 70px; /* encore plus petit pour petits écrans */
+    }
+  
+    .menu-toggle {
+      font-size: 2.5rem; /* plus gros pour qu'on puisse cliquer facilement */
+    }
+  
+    .nav-links li {
+      padding: 0.8rem 0;
+    }
+  
+    /* Hero */
+    .hero {
+      margin-top: 20px;
+    }
+    
+    .hero h1 {
+      font-size: 1.8rem; /* plus petit titre */
+      line-height: 1.2;
+    }
+  
+    /* Slider */
+    .slide {
+      height: 300px; /* plus bas pour ne pas prendre tout l'écran */
+    }
+    
+    /* Footer reste pareil, compact */
+  }
+
