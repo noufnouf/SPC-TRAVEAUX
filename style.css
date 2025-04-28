@@ -280,7 +280,16 @@ footer {
   background: #0690de;
   justify-content: center;
 }
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
 .footer-content p {
   margin: 0;
   font-size: 1.1rem;
@@ -330,29 +339,32 @@ footer {
   /* Footer reste pareil */
 }
 @media (max-width: 945px) {
+  /* Header */
   .header-content {
     width: 90%;
     padding: 0 1rem;
   }
 
   .logo {
-    width: 70px; /* plus petit pour être visible */
+    width: 85px;
   }
 
   nav {
-    width: 100%;
+    width: 90%;
   }
 
-  .nav-links a {
-    font-size: 13px; /* réduire la taille du texte du menu pour qu'on voie bien la différence */
+  .nav-links {
+    gap: 10px;
   }
 
+  /* Hero */
   .hero h1 {
-    font-size: 2rem; /* bien plus petit */
+    font-size: 2.3rem;
   }
 
+  /* Slider */
   .slide {
-    height: 450px; /* baisser clairement la hauteur */
+    height: 550px;
   }
 }
 @media (max-width: 900px) {
@@ -382,91 +394,25 @@ footer {
     height: 480px;
   }
 }
-@media (max-width: 842px) {
-  /* Header */
-  .header-content {
-    width: 90%;
-    padding: 0 0.8rem;
-  }
 
-  .logo {
-    width: 65px;
-  }
-
-  nav {
-    width: 100%;
-  }
-
-  .nav-links {
-    gap: 8px;
-  }
-
-  .nav-links a {
-    font-size: 12px;
-  }
-
-  /* Hero */
-  .hero h1 {
-    font-size: 1.9rem;
-    line-height: 1.2;
-  }
-
-  /* Slider */
-  .slide {
-    height: 400px;
-  }
-}
-@media (max-width: 805px) {
-  /* Header */
-  .header-content {
-    width: 90%;
-    padding: 0 0.5rem;
-  }
-
-  .logo {
-    width: 60px;
-  }
-
-  nav {
-    width: 100%;
-  }
-
-  .nav-links {
-    gap: 6px;
-  }
-
-  .nav-links a {
-    font-size: 11.5px;
-  }
-
-  /* Hero */
-  .hero h1 {
-    font-size: 1.8rem;
-    line-height: 1.2;
-  }
-
-  /* Slider */
-  .slide {
-    height: 380px;
-  }
-}
 @media (max-width: 768px) {
   nav {
-    position: relative;
+    position: relative; /* plus position absolute */
   }
 
   .nav-links {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    display: flex;
     flex-direction: column;
     background: #023653;
     width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: all 0.3s ease;
+    z-index: 999;
   }
 
   .nav-links.active {
@@ -483,61 +429,48 @@ footer {
 
   .menu-toggle {
     display: block;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: white;
     cursor: pointer;
-  }
-
-  .logo {
-    width: 60px; /* vraiment plus petit sur mobile */
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-    line-height: 1.2;
-  }
-
-  .slide {
-    height: 400px;
   }
 }
 
 
   /* Mobiles petits formats */
   @media (max-width: 480px) {
-    /* Header */
-    .header-content {
-      width: 95%;
-      padding: 0 0.5rem;
-    }
-  
-    .logo {
-      width: 70px; /* encore plus petit pour petits écrans */
-    }
-  
-    .menu-toggle {
-      font-size: 2.5rem; /* plus gros pour qu'on puisse cliquer facilement */
-    }
-  
-    .nav-links li {
-      padding: 0.8rem 0;
-    }
-  
-    /* Hero */
-    .hero {
-      margin-top: 20px;
-    }
-    
-    .hero h1 {
-      font-size: 1.8rem; /* plus petit titre */
-      line-height: 1.2;
-    }
-  
-    /* Slider */
-    .slide {
-      height: 300px; /* plus bas pour ne pas prendre tout l'écran */
-    }
-    
-    /* Footer reste pareil, compact */
+  /* Header */
+  .header-content {
+    width: 95%;
+    padding: 0 0.5rem;
   }
+
+  .logo {
+    width: 70px; /* encore plus petit pour petits écrans */
+  }
+
+  .menu-toggle {
+    font-size: 2.5rem; /* plus gros pour qu'on puisse cliquer facilement */
+  }
+
+  .nav-links li {
+    padding: 0.8rem 0;
+  }
+
+  /* Hero */
+  .hero {
+    margin-top: 20px;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem; /* plus petit titre */
+    line-height: 1.2;
+  }
+
+  /* Slider */
+  .slide {
+    height: 300px; /* plus bas pour ne pas prendre tout l'écran */
+  }
+  
+  /* Footer reste pareil, compact */
+}
 
